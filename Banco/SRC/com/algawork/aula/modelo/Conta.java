@@ -9,7 +9,7 @@ public class Conta{
     
 /*Construtor, para substituir toda a implementação
 Realizada no método main*/
-    Conta(Pessoa titular, Pessoa doc, int agencia, int numero){
+    public Conta(Pessoa titular, Pessoa doc, int agencia, int numero){
         Objects.requireNonNull(titular);
         this.titular=titular;
         this.doc=doc;
@@ -23,7 +23,7 @@ Realizada no método main*/
     recrialo com sobrecarga de construtores para funcionar
     os dois construtores*/
 
-    void depositar(double valor){//Métodos 
+    public void depositar(double valor){//Métodos 
         if(valor>=0){
             saldo+=valor;
         }else{
@@ -32,10 +32,10 @@ Realizada no método main*/
        
     }
 
-    void sacar(double valor){
+    public void sacar(double valor){
         if(valor<=0){
              throw new IllegalStateException("Valor Inválido deve ser superior a 0");
-        }else if(saldo-valor>=0){
+        }else if(getSaldoDisponivel()-valor>=0){
             saldo-=valor;
         }else{
             throw new IllegalStateException("Saldo Insuficiente"); 
@@ -43,7 +43,7 @@ Realizada no método main*/
 
     }
 
-    void sacar(double valor,double txSaque){//Sobre Carga de métodos
+    public void sacar(double valor,double txSaque){//Sobre Carga de métodos
         sacar(valor+txSaque);
 
     }
@@ -74,5 +74,9 @@ Realizada no método main*/
         return saldo;
 
     }
-   
+
+    public double getSaldoDisponivel(){//Para usar a sobre escrita de metodos 
+        return getSaldo();             //Criamos uma novo método que chamará 
+    }                                  //O método utilizado e na classe filha
+                                       //Escrevermos o método necessário 
 }

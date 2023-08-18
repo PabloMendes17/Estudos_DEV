@@ -1,7 +1,10 @@
-import com.algawork.aula.modelo.Conta;
-import com.algawork.aula.modelo.Pessoa;
-
 package com.algawork.aula.app;
+import com.algawork.aula.modelo.Conta;
+import com.algawork.aula.modelo.ContaEspecial;
+import com.algawork.aula.modelo.Pessoa;
+import com.algawork.aula.modelo.ContaInvestimento;
+
+
 public class Principal {
     public static void main(String[]args){
        Pessoa titular1 = new Pessoa();
@@ -44,6 +47,10 @@ public class Principal {
 
         Conta aquelaConta= new Conta(titular3,titular3,123,852);
         System.out.println("Saldo Inicial: "+aquelaConta.getSaldo());
+
+        ContaInvestimento minhaContaInvestimento= new ContaInvestimento(titular1,titular1,123,777);
+
+        ContaEspecial minhaContaEspecial = new ContaEspecial(titular1,titular1,123,666,1000);
         
         //System.out.println("Titular: "+minhaConta.titular.nome);// não é mais acessado diretamente e sim por método
         System.out.println("Titular: "+minhaConta.getTitular().getNome());
@@ -57,16 +64,28 @@ public class Principal {
         System.out.println("Numero: "+suaConta.getNumero());
         System.out.println("Saldo Inicial: "+suaConta.getSaldo());
 
-        minhaConta.depositar(10);
+        minhaConta.depositar(20);
         suaConta.depositar(30);
         System.out.println("Saldo Atual: "+minhaConta.getSaldo());
         System.out.println("Saldo Atual: "+suaConta.getSaldo());
       
-        minhaConta.sacar(150, 10);
+        minhaConta.sacar(5, 0.1);
         System.out.println("Saldo Atual: "+minhaConta.getSaldo());
 
         aquelaConta.depositar(150);
         System.out.println("Saldo Atualizado: "+aquelaConta.getSaldo());
+
+        minhaContaInvestimento.depositar(10);
+        minhaContaInvestimento.creditarRendimento(0.3);
+        System.out.println("Saldo Atual: "+minhaContaInvestimento.getSaldo());
+
+        minhaContaEspecial.depositar(1500);
+        System.out.println("Saldo Atual: "+minhaContaEspecial.getSaldo());
+        System.out.println("Saldo + Limite: "+minhaContaEspecial.getSaldoDisponivel());
+        // minhaContaEspecial.sacar(2501); se tentar sacar mais que o Saldo e limite informa sem saldo
+        minhaContaEspecial.sacar(2000);// como o saque é maior que o Saldo mas menos que saldo menos limite
+        System.out.println("Saldo Atual: "+minhaContaEspecial.getSaldo());//o saque pe realizado e o valor de 
+        //saldo é atualizado e fica negativo
 
 
     }

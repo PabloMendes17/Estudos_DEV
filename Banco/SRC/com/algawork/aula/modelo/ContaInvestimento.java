@@ -4,6 +4,7 @@ public class ContaInvestimento extends Conta{
 /*Esta é a herança ira herdar tudo de Conta
  Porem pode implementar novos métodos somente 
  dela*/ 
+
  //Começamos pelo construtor
     public ContaInvestimento(Pessoa titular, Pessoa documento, int agencia,int numero){
         super(titular,documento,agencia,numero);//aqui invocamos o construtor da classe Conta
@@ -14,5 +15,7 @@ public class ContaInvestimento extends Conta{
         double valorRendimentos= getSaldo()*percentualJuros/100;
         depositar(valorRendimentos);
     }
+
+    
     
 }
