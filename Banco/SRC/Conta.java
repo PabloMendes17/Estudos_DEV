@@ -1,10 +1,10 @@
 import java.util.Objects;
 public class Conta{
-    Pessoa titular;
-    Pessoa doc;
-    int agencia;
-    int numero;
-    double saldo;
+    private Pessoa titular;//modificador de acesso para proteger 
+    private Pessoa doc;
+    private int agencia;
+    private int numero;
+    private double saldo;
     
 /*Construtor, para substituir toda a implementação
 Realizada no método main*/
@@ -45,5 +45,41 @@ Realizada no método main*/
     void sacar(double valor,double txSaque){//Sobre Carga de métodos
         sacar(valor+txSaque);
 
+    }
+
+    public void getTitular(){
+        return titular;
+
+    }
+    public vois setTitular(Pessoa titular){
+        this.titular=titular;
+    }
+    public void getDoc(){
+        return doc;
+
+    }
+    public vois setDoc(Pessoa doc){
+        this.doc=doc;
+    }
+    public void getAgencia(){
+        return agencia;
+
+    }
+    public vois setAgencia(int agencia){
+        this.agencia=agencia;
+    }
+    public void getNumero(){
+        return numero;
+
+    }
+    public vois setNumero(int numero){
+        this.numero=numero;
+    }
+    public void getSaldo(){
+        return saldo;
+
+    }
+    public vois setSaldo(int saldo){
+        this.saldo=saldo;
     }
 }

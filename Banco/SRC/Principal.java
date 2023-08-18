@@ -1,8 +1,10 @@
 public class Principal {
     public static void main(String[]args){
        Pessoa titular1 = new Pessoa();
-        titular1.nome="Joao da Silva";
-        titular1.documento="12312312311";
+        //titular1.nome="Joao da Silva";Deixando a atribuição direta
+        titular1.setNome("Joao da Silva");//Usando o encapsulamento para proteger
+       // titular1.documento="12312312311"; 
+       titular1.setDocumento("12312312311")
 
         Pessoa titular2 = new Pessoa();
         titular2.nome="Maria Abaidia";
