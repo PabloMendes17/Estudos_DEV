@@ -1,3 +1,4 @@
+package com.algawork.aula.modelo;
 import java.util.Objects;
 public class Conta{
     private Pessoa titular;//modificador de acesso para proteger 
@@ -47,39 +48,31 @@ Realizada no método main*/
 
     }
 
-    public void getTitular(){
+    public Pessoa getTitular(){
         return titular;
 
     }
-    public vois setTitular(Pessoa titular){
-        this.titular=titular;
-    }
-    public void getDoc(){
+
+    public Pessoa getDoc(){
         return doc;
 
     }
-    public vois setDoc(Pessoa doc){
+    public void setDoc(Pessoa doc){
         this.doc=doc;
     }
-    public void getAgencia(){
+    public int getAgencia(){
         return agencia;
 
     }
-    public vois setAgencia(int agencia){
-        this.agencia=agencia;
-    }
-    public void getNumero(){
+
+    public int getNumero(){
         return numero;
 
     }
-    public vois setNumero(int numero){
-        this.numero=numero;
-    }
-    public void getSaldo(){
+
+    public double getSaldo(){
         return saldo;
 
     }
-    public vois setSaldo(int saldo){
-        this.saldo=saldo;
-    }
+   
 }
