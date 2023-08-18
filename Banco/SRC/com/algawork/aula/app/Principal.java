@@ -1,9 +1,10 @@
 package com.algawork.aula.app;
 import com.algawork.aula.modelo.Conta;
+import com.algawork.aula.modelo.ContaSimples;
 import com.algawork.aula.modelo.ContaEspecial;
 import com.algawork.aula.modelo.Pessoa;
 import com.algawork.aula.modelo.ContaInvestimento;
-
+import com.algawork.aula.modelo.CaixaEletronico;
 
 public class Principal {
     public static void main(String[]args){
@@ -20,7 +21,9 @@ public class Principal {
         titular2.setDocumento("22233344455");
 
         //Conta minhaConta = new Conta();//
-        Conta minhaConta= new Conta(titular1,titular1,123,987);
+        //Conta minhaConta= new Conta(titular1,titular1,123,987); Agora que a conta é abstrata 
+        //não podemos usar esse tipo de instanciação
+        ContaSimples minhaConta= new ContaSimples(titular1,titular1,123,987);
         //minhaConta.titular=titular1;
         //minhaConta.setTitular(titular2);por segurança esse método foi excluido
         //minhaConta.doc=titular1;        para não ser possível atribuir novos valore
@@ -39,13 +42,15 @@ public class Principal {
         suaConta.setAgencia(222);
         suaConta.setNumero(333);Usando o construtor informamos os dados na 
         suaConta.setSaldo(30000);criação do objeto dos atributos que não tem SET*/
-        Conta suaConta= new Conta(titular2,titular2,222,333);
+        ContaSimples suaConta= new ContaSimples(titular2,titular2,222,333);
 
         Pessoa titular3 = new Pessoa();
         titular3.setNome("Tereza Maria");
         titular3.setDocumento("31231231244");
 
-        Conta aquelaConta= new Conta(titular3,titular3,123,852);
+        //Conta aquelaConta= new Conta(titular3,titular3,123,852); agora que a classe é abstrata esta instaciação 
+        //para de funcionar 
+         ContaSimples aquelaConta= new ContaSimples(titular3,titular3,123,852);  
         System.out.println("Saldo Inicial: "+aquelaConta.getSaldo());
 
         ContaInvestimento minhaContaInvestimento= new ContaInvestimento(titular1,titular1,123,777);
@@ -86,6 +91,12 @@ public class Principal {
         minhaContaEspecial.sacar(2000);// como o saque é maior que o Saldo mas menos que saldo menos limite
         System.out.println("Saldo Atual: "+minhaContaEspecial.getSaldo());//o saque pe realizado e o valor de 
         //saldo é atualizado e fica negativo
+        
+        CaixaEletronico cxEletronico = new CaixaEletronico();//desta forma usamos com Polimorfismo 
+        cxEletronico.imprimirSaldo(minhaContaInvestimento);//este objeto para que referencias
+                                                           //genericas sejam usadas para receber      
+        cxEletronico.imprimirSaldo(minhaContaEspecial);    //informaçãoes de tipos mais especificos
+        
 
 
     }

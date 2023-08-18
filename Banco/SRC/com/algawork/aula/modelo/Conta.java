@@ -1,6 +1,9 @@
 package com.algawork.aula.modelo;
 import java.util.Objects;
-public class Conta{
+
+// para que esta classe possa ser usada como referencia na ciração das demais
+//public class Conta{sem que seja instanciada diretamente usamos a ABSTRAÇÃO 
+public abstract class Conta{  
     private Pessoa titular;//modificador de acesso para proteger 
     private Pessoa doc;
     private int agencia;
@@ -22,6 +25,11 @@ Realizada no método main*/
     O construtor do JAVA para de funcionar assim podemor
     recrialo com sobrecarga de construtores para funcionar
     os dois construtores*/
+
+
+    public abstract void debitarTarifaMensal();//quando temos uma classe abstrata
+    //podemos utilizar um metodo abstrado que seja obrigatório de ser implementado
+    //em todas as classes filhas
 
     public void depositar(double valor){//Métodos 
         if(valor>=0){

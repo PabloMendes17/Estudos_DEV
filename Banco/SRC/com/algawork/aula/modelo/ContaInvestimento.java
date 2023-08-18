@@ -16,6 +16,12 @@ public class ContaInvestimento extends Conta{
         depositar(valorRendimentos);
     }
 
+    public void debitarTarifaMensal(){
+        if(getSaldo()<10000){
+            sacar(30);
+        }
+    }
+
     
     
 }
