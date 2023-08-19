@@ -1,4 +1,5 @@
 package com.algawork.aula.modelo;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 // para que esta classe possa ser usada como referencia na ciração das demais
@@ -8,7 +9,10 @@ public abstract class Conta{
     private Pessoa doc;
     private int agencia;
     private int numero;
-    private double saldo;
+    /*private double saldo;tanto o Double quanto o Float quando usados 
+    para cauculos com muitos decimais tendem a gerar dizimas para evitar 
+    isso podemos usar a classe BigDecimal */
+    private BigDecimal saldo= new BigDecimal(0);
     
 /*Construtor, para substituir toda a implementação
 Realizada no método main*/
@@ -31,28 +35,28 @@ Realizada no método main*/
     //podemos utilizar um metodo abstrado que seja obrigatório de ser implementado
     //em todas as classes filhas
 
-    public void depositar(double valor){//Métodos 
-        if(valor>=0){
-            saldo+=valor;
+    public void depositar(BigDecimal valor){//Métodos 
+        if(valor.compareTo(BigDecimal.ZERO)>=0){
+            saldo= saldo.add(valor);
         }else{
             throw new IllegalStateException("Valor Inválido deve ser superior a 0");
         }
        
     }
 
-    public void sacar(double valor){
-        if(valor<=0){
+    public void sacar(BigDecimal valor){
+        if(valor.compareTo(BigDecimal.ZERO)<=0){
              throw new IllegalStateException("Valor Inválido deve ser superior a 0");
-        }else if(getSaldoDisponivel()-valor>=0){
-            saldo-=valor;
+        }else if(getSaldoDisponivel().subtract(valor).compareTo(BigDecimal.ZERO)>=0){
+            saldo.subtract(valor);
         }else{
             throw new IllegalStateException("Saldo Insuficiente"); 
         }
 
     }
 
-    public void sacar(double valor,double txSaque){//Sobre Carga de métodos
-        sacar(valor+txSaque);
+    public void sacar(BigDecimal valor,BigDecimal txSaque){//Sobre Carga de métodos
+        sacar(valor.add(txSaque));
 
     }
 
@@ -78,12 +82,12 @@ Realizada no método main*/
 
     }
 
-    public double getSaldo(){
+    public BigDecimal getSaldo(){
         return saldo;
 
     }
 
-    public double getSaldoDisponivel(){//Para usar a sobre escrita de metodos 
+    public BigDecimal getSaldoDisponivel(){//Para usar a sobre escrita de metodos 
         return getSaldo();             //Criamos uma novo método que chamará 
     }                                  //O método utilizado e na classe filha
                                        //Escrevermos o método necessário 

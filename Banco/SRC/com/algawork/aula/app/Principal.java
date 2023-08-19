@@ -1,4 +1,7 @@
 package com.algawork.aula.app;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 import com.algawork.aula.modelo.Conta;
 import com.algawork.aula.modelo.ContaSimples;
 import com.algawork.aula.modelo.ContaEspecial;
@@ -58,7 +61,7 @@ public class Principal {
 
         ContaInvestimento minhaContaInvestimento= new ContaInvestimento(titular1,titular1,123,777);
 
-        ContaEspecial minhaContaEspecial = new ContaEspecial(titular1,titular1,123,666,1000);
+        ContaEspecial minhaContaEspecial = new ContaEspecial(titular1,titular1,123,666,new BigDecimal(1000));
         
         //System.out.println("Titular: "+minhaConta.titular.nome);// não é mais acessado diretamente e sim por método
         System.out.println("Titular: "+minhaConta.getTitular().getNome());
@@ -72,26 +75,26 @@ public class Principal {
         System.out.println("Numero: "+suaConta.getNumero());
         System.out.println("Saldo Inicial: "+suaConta.getSaldo());
 
-        minhaConta.depositar(20);
-        suaConta.depositar(30);
+        minhaConta.depositar( new BigDecimal(20));
+        suaConta.depositar(new BigDecimal(30));
         System.out.println("Saldo Atual: "+minhaConta.getSaldo());
         System.out.println("Saldo Atual: "+suaConta.getSaldo());
       
-        minhaConta.sacar(5, 0.1);
+        minhaConta.sacar(new BigDecimal(5), new BigDecimal(0.1));
         System.out.println("Saldo Atual: "+minhaConta.getSaldo());
 
-        aquelaConta.depositar(150);
+        aquelaConta.depositar(new BigDecimal(150));
         System.out.println("Saldo Atualizado: "+aquelaConta.getSaldo());
 
-        minhaContaInvestimento.depositar(10);
-        minhaContaInvestimento.creditarRendimento(0.3);
+        minhaContaInvestimento.depositar(new BigDecimal(10));
+        minhaContaInvestimento.creditarRendimento(new BigDecimal(0.3));
         System.out.println("Saldo Atual: "+minhaContaInvestimento.getSaldo());
 
-        minhaContaEspecial.depositar(1500);
+        minhaContaEspecial.depositar(new BigDecimal(1500));
         System.out.println("Saldo Atual: "+minhaContaEspecial.getSaldo());
         System.out.println("Saldo + Limite: "+minhaContaEspecial.getSaldoDisponivel());
         // minhaContaEspecial.sacar(2501); se tentar sacar mais que o Saldo e limite informa sem saldo
-        minhaContaEspecial.sacar(2000);// como o saque é maior que o Saldo mas menos que saldo menos limite
+        minhaContaEspecial.sacar(new BigDecimal(2000));// como o saque é maior que o Saldo mas menos que saldo menos limite
         System.out.println("Saldo Atual: "+minhaContaEspecial.getSaldo());//o saque pe realizado e o valor de 
         //saldo é atualizado e fica negativo
         
@@ -103,17 +106,17 @@ public class Principal {
         minhaContaEspecial.debitarTarifaMensal();
         cxEletronico.imprimirSaldo(minhaContaEspecial);
 
-        Boleto boletoEscola = new Boleto(titular3,200);
+        Boleto boletoEscola = new Boleto(titular3,new BigDecimal(200));
         System.out.println("Boleto pago: "+boletoEscola.estaPago());
         cxEletronico.pagar(boletoEscola, minhaContaEspecial);
         System.out.println("Boleto pago: "+boletoEscola.estaPago());
         cxEletronico.imprimirSaldo(minhaContaEspecial);
-        minhaContaEspecial.depositar(10000);
+        minhaContaEspecial.depositar(new BigDecimal(10000));
         cxEletronico.imprimirSaldo(minhaContaEspecial);
         Pessoa titular4 = new Pessoa();
         titular4.setNome("Pablo Mendes");
         titular4.setDocumento("9424");
-        Holerite holeritePablo = new Holerite(titular4,50,40);
+        Holerite holeritePablo = new Holerite(titular4,new BigDecimal(50),new BigDecimal(40));
         cxEletronico.pagar(holeritePablo, minhaContaEspecial);
         holeritePablo.imprimirRecibo();
         cxEletronico.imprimirSaldo(minhaContaEspecial);
@@ -128,11 +131,14 @@ public class Principal {
         de onde for a chamada o programa deixara de executar outras
         chamadas validas*/
         try {
-            minhaContaEspecial.sacar(9000);
+            minhaContaEspecial.sacar(new BigDecimal(9000));
 
         }catch(IllegalStateException e){
             System.out.println("Erro de execução "+e.getMessage());
         }
+        System.out.println(titular1.getdataUltimaAtualizacao());
+        titular1.setDataUltimaAtualizacao(LocalDateTime.parse("2023-08-18T18:00"));
+        System.out.println(titular1.getdataUltimaAtualizacao());
 
 
     }

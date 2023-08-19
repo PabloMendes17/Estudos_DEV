@@ -1,5 +1,8 @@
 package com.algawork.aula.modelo;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class ContaInvestimento extends Conta{  
 /*Esta é a herança ira herdar tudo de Conta
  Porem pode implementar novos métodos somente 
@@ -11,14 +14,14 @@ public class ContaInvestimento extends Conta{
         //Não o construtor padrão mas o customizado, se deixarmos vazio chamara o vazio
     }
 
-    public void creditarRendimento(double percentualJuros){
-        double valorRendimentos= getSaldo()*percentualJuros/100;
+    public void creditarRendimento(BigDecimal percentualJuros){
+        BigDecimal valorRendimentos= getSaldo().multiply(percentualJuros).divide(new BigDecimal(100),2,RoundingMode.HALF_EVEN);
         depositar(valorRendimentos);
     }
 
     public void debitarTarifaMensal(){
-        if(getSaldo()<10000){
-            sacar(30);
+        if(getSaldo().compareTo(BigDecimal.ZERO)<10000){
+            sacar(new BigDecimal(30));
         }
     }
 

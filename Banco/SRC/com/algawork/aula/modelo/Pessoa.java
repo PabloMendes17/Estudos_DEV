@@ -1,7 +1,12 @@
 package com.algawork.aula.modelo;
+
+import java.time.LocalDateTime;
+
 public class Pessoa {
     private String nome;
     private String documento;
+    private TipoPessoa tipo=TipoPessoa.FISICA;
+    private LocalDateTime dataUltimaAtualizacao=LocalDateTime.now();
 
     public String getNome(){
         return nome;
@@ -14,5 +19,17 @@ public class Pessoa {
     }
     public void setDocumento(String documento){
         this.documento=documento;
+    }
+    public TipoPessoa getTipo() {
+        return tipo;
+    }
+    public void setTipo(TipoPessoa tipo) {
+        this.tipo = tipo;
+    }
+    public LocalDateTime getdataUltimaAtualizacao() {
+        return dataUltimaAtualizacao;
+    }
+    public void setDataUltimaAtualizacao(LocalDateTime dataUltimaAtualizacao) {
+        this.dataUltimaAtualizacao = dataUltimaAtualizacao;
     }
 }
