@@ -3,8 +3,11 @@ import com.algawork.aula.modelo.Conta;
 import com.algawork.aula.modelo.ContaSimples;
 import com.algawork.aula.modelo.ContaEspecial;
 import com.algawork.aula.modelo.Pessoa;
+import com.algawork.aula.modelo.atm.CaixaEletronico;
 import com.algawork.aula.modelo.ContaInvestimento;
-import com.algawork.aula.modelo.CaixaEletronico;
+import com.algawork.aula.modelo.pagamento.Boleto;
+import com.algawork.aula.modelo.pagamento.DocumentoPagavel;
+import com.algawork.aula.modelo.pagamento.Holerite;
 
 public class Principal {
     public static void main(String[]args){
@@ -97,6 +100,23 @@ public class Principal {
                                                            //genericas sejam usadas para receber      
         cxEletronico.imprimirSaldo(minhaContaEspecial);    //informaçãoes de tipos mais especificos
         
+        minhaContaEspecial.debitarTarifaMensal();
+        cxEletronico.imprimirSaldo(minhaContaEspecial);
+
+        Boleto boletoEscola = new Boleto(titular3,200);
+        System.out.println("Boleto pago: "+boletoEscola.estaPago());
+        cxEletronico.pagar(boletoEscola, minhaContaEspecial);
+        System.out.println("Boleto pago: "+boletoEscola.estaPago());
+        cxEletronico.imprimirSaldo(minhaContaEspecial);
+        minhaContaEspecial.depositar(10000);
+        cxEletronico.imprimirSaldo(minhaContaEspecial);
+        Pessoa titular4 = new Pessoa();
+        titular4.setNome("Pablo Mendes");
+        titular4.setDocumento("9424");
+        Holerite holeritePablo = new Holerite(titular4,50,40);
+        cxEletronico.pagar(holeritePablo, minhaContaEspecial);
+        cxEletronico.imprimirSaldo(minhaContaEspecial);
+
 
 
     }

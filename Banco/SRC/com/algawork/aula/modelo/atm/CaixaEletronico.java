@@ -1,4 +1,7 @@
-package com.algawork.aula.modelo;
+package com.algawork.aula.modelo.atm;
+
+import com.algawork.aula.modelo.Conta;
+import com.algawork.aula.modelo.pagamento.DocumentoPagavel;
 
 public class CaixaEletronico {
   /* public void imprimirSaldo(ContaInvestimento conta) nessa classe e nesse método teria q
@@ -10,4 +13,14 @@ public class CaixaEletronico {
     System.out.println("Saldo Atual: "+conta.getSaldo()); 
     System.out.println("Saldo Disponível: "+conta.getSaldoDisponivel());
    } 
+
+   public void pagar(DocumentoPagavel documento, Conta conta){
+    if(documento.estaPago()){
+        throw new IllegalStateException("Documento já pago");
+      }
+      conta.sacar(documento.getValorTotal());
+      documento.quitarPagamenmto();
+    }
+
+
 }
