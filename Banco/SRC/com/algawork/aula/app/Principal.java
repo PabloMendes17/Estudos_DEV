@@ -115,7 +115,11 @@ public class Principal {
         titular4.setDocumento("9424");
         Holerite holeritePablo = new Holerite(titular4,50,40);
         cxEletronico.pagar(holeritePablo, minhaContaEspecial);
+        holeritePablo.imprimirRecibo();
         cxEletronico.imprimirSaldo(minhaContaEspecial);
+        cxEletronico.estornarPagamneto(boletoEscola, minhaContaEspecial);
+        cxEletronico.imprimirSaldo(minhaContaEspecial);
+
 
 
 

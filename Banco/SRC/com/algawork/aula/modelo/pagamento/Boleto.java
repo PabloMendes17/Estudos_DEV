@@ -2,7 +2,7 @@ package com.algawork.aula.modelo.pagamento;
 
 import com.algawork.aula.modelo.Pessoa;
 
-public class Boleto implements DocumentoPagavel {
+public class Boleto implements DocumentoPagavel, DocumentoExtornavel {
 
     private Pessoa beneficiario;
     private double valor;
@@ -27,6 +27,11 @@ public class Boleto implements DocumentoPagavel {
     @Override
     public void quitarPagamenmto() {
         pago = true;
+    }
+
+    @Override
+    public void estornarPagamneto() {
+        pago=false;
     }
 
 }

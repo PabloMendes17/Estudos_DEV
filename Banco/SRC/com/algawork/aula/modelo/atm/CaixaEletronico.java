@@ -1,6 +1,7 @@
 package com.algawork.aula.modelo.atm;
 
 import com.algawork.aula.modelo.Conta;
+import com.algawork.aula.modelo.pagamento.DocumentoExtornavel;
 import com.algawork.aula.modelo.pagamento.DocumentoPagavel;
 
 public class CaixaEletronico {
@@ -20,6 +21,15 @@ public class CaixaEletronico {
       }
       conta.sacar(documento.getValorTotal());
       documento.quitarPagamenmto();
+    }
+
+    public void estornarPagamneto(DocumentoExtornavel documento, Conta conta){
+        if(!documento.estaPago()){
+          throw new IllegalStateException("Documento não esta pago");
+        }
+        conta.depositar(documento.getValorTotal());
+        documento.estornarPagamneto();
+        
     }
 
 
