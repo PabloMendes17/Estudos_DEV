@@ -119,8 +119,20 @@ public class Principal {
         cxEletronico.imprimirSaldo(minhaContaEspecial);
         cxEletronico.estornarPagamneto(boletoEscola, minhaContaEspecial);
         cxEletronico.imprimirSaldo(minhaContaEspecial);
+        
+      /*minhaContaEspecial.sacar(9000);quando a chamada é feita 
+        desta forma mesmo que tenha dido realizado um tratamento de 
+        erro desntro do método como existe uma pilha de chamada até 
+        ele tambem é retornado uma trilha pela qual a chama retornou 
+        alem de que desta forma o programa para a execução e dependendo
+        de onde for a chamada o programa deixara de executar outras
+        chamadas validas*/
+        try {
+            minhaContaEspecial.sacar(9000);
 
-
+        }catch(IllegalStateException e){
+            System.out.println("Erro de execução "+e.getMessage());
+        }
 
 
     }
