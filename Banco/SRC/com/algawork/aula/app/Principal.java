@@ -98,11 +98,11 @@ public class Principal {
         System.out.println("Saldo Atual: "+minhaContaEspecial.getSaldo());//o saque pe realizado e o valor de 
         //saldo é atualizado e fica negativo
         
-        CaixaEletronico cxEletronico = new CaixaEletronico();//desta forma usamos com Polimorfismo 
-        cxEletronico.imprimirSaldo(minhaContaInvestimento);//este objeto para que referencias
-                                                           //genericas sejam usadas para receber      
-        cxEletronico.imprimirSaldo(minhaContaEspecial);    //informaçãoes de tipos mais especificos
-        
+        CaixaEletronico cxEletronico = new CaixaEletronico();//Com o polimorfismo aplicado na classe
+        cxEletronico.imprimirSaldo(minhaContaInvestimento);//Caixa Eletronico, não pe necessario criar 
+                                                           //Mais de um método para atender os tipos       
+        cxEletronico.imprimirSaldo(minhaContaEspecial);    //diferentes de conta, mas um único método
+                                                           //Enxergado diferente para cada chamada
         minhaContaEspecial.debitarTarifaMensal();
         cxEletronico.imprimirSaldo(minhaContaEspecial);
 
