@@ -17,6 +17,13 @@ public abstract class Conta {
         this.nconta=nconta;
 
     }
+
+    public void depositar(BigDecimal valor){
+        System.out.println("Deposito de "+valor+" realizado com sucesso");
+        saldoConta=saldoConta.add(valor);
+    }
+
+
     public Pessoa  getID(){
         return id;
     }

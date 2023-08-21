@@ -12,5 +12,9 @@ public class Cartao {
         this.nconta=nconta;
         
     }
+
+    public int ncartao(){
+        return ncartao;
+    }
     
 }
