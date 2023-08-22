@@ -42,4 +42,42 @@ public class Pessoa {
     public void setDataUltimaAtualizacao(LocalDateTime dataUltimaAtualizacao) {
         this.dataUltimaAtualizacao = dataUltimaAtualizacao;
     }
+
+    @Override
+    public String toString() {
+        return "Pessoa [nome=" + nome + ", documento=" + documento + ", tipo=" + tipo + "]";
+    }
+
+
+    /*estes métodos são para melhoria de eficiencia no uso do haslist
+    fazendo com que as comparações de fato encontre os iguais foi gerado 
+    automaticamente pela IDE não é obrigatório que seja esta logica*/
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((documento == null) ? 0 : documento.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Pessoa other = (Pessoa) obj;
+        if (documento == null) {
+            if (other.documento != null)
+                return false;
+        } else if (!documento.equals(other.documento))
+            return false;
+        return true;
+    }
+
+
+
+    
 }
