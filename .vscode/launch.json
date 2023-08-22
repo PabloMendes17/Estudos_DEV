@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CalculadoraCortisol",
+            "request": "launch",
+            "mainClass": "CalculadoraCortisol",
+            "projectName": "AlgaWork_ab23ff5b"
+        },
+        {
+            "type": "java",
             "name": "AlgoritimosDeOrdenacao",
             "request": "launch",
             "mainClass": "AlgoritimosDeOrdenacao",
