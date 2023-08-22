@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AlgoProprio",
+            "request": "launch",
+            "mainClass": "AlgoProprio",
+            "projectName": "AlgaWork_ab23ff5b"
+        },
+        {
+            "type": "java",
+            "name": "Principal",
+            "request": "launch",
+            "mainClass": "com.algawork.aula.app.Principal",
+            "projectName": "AlgaWork_ab23ff5b"
+        },
+        {
+            "type": "java",
             "name": "CalculadoraCortisol",
             "request": "launch",
             "mainClass": "CalculadoraCortisol",
