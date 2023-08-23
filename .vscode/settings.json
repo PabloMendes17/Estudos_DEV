@@ -1,3 +1,9 @@
 {
-    "java.compile.nullAnalysis.mode": "automatic"
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.dependency.packagePresentation": "hierarchical",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "pabloserpro/resourses/mysql-connector-j-8.1.0.jar",
+        "pabloserpro/resourses/postgresql-42.6.0.jar"
+    ]
 }
