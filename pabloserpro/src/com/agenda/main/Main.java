@@ -37,6 +37,10 @@ public class Main {
         upContato.setId(2);
 
         contatoDao.update(upContato);
+        contatoDao.updatep(upContato);
+
+        contatoDao.delete(1);
+
 
     
 

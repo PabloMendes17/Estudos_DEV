@@ -26,6 +26,7 @@ public class ContatoDAO {
          pstm.setDate(3, new Date(contato.getDataCadastro().getTime()));
          
          pstm.execute();
+
       }catch (Exception e){
          e.printStackTrace();
       }finally{
@@ -53,6 +54,7 @@ public class ContatoDAO {
          pstmp.setDate(3, new Date(contatop.getDataCadastro().getTime()));
          
          pstmp.execute();
+
       }catch (Exception e){
          e.printStackTrace();
       }finally{
@@ -176,10 +178,92 @@ public class ContatoDAO {
             e.printStackTrace();
          }
       }
-    
+   }
+   public void updatep(Contato contatop){
+      String sql ="UPDATE contatos set contatos.nome=?, contatos.idade=?, contatos.datacadastro=? "+"where contato.id=?";
+      Connection conp= null;
+      PreparedStatement pstmp= null;
 
+      try {
+         conp=ConectionFactory.abrePostgre();
+         pstmp=(PreparedStatement) conp.prepareStatement(sql);
+         pstmp.setString(1, contatop.getNome());
+         pstmp.setInt(2,contatop.getIdade());
+         pstmp.setDate(3,new Date(contatop.getDataCadastro().getTime()));
+         pstmp.setInt(4,contatop.getId());
+
+         pstmp.execute();
+      }catch(Exception e){
+         e.printStackTrace();
+      }finally{
+         try{
+            if(pstmp!=null){
+               pstmp.close();
+            }
+            if(conp!=null){
+               pstmp.close();
+            }
+         }catch(Exception e){
+            e.printStackTrace();
+         }
+      }
+   }
+   public void delete(int id){
+      String sql= "DELETE from contatos where contato.id=?";
+      Connection conn = null;
+      PreparedStatement pstm =null;
+
+      try{
+         conn=ConectionFactory.abreConexaoMySql();
+         pstm=(PreparedStatement) conn.prepareStatement(sql);
+         pstm.setInt(1,id);
+
+         pstm.execute();
+
+      }catch(Exception e){
+         e.printStackTrace();
+      }finally{
+         try{
+            if(pstm!=null){
+               pstm.close();
+            }
+            if(conn!=null){
+               conn.close();
+            }
+         }catch(Exception e){
+            e.printStackTrace();
+         }
+      }
 
    }
+   public void deletep(int id){
+      String sql="DELETE FROM contatos WHERE contatos.id=?";
+      Connection conp =null;
+      PreparedStatement pstmp =null;
+
+      try{
+         conp=ConectionFactory.abrePostgre();
+         pstmp=(PreparedStatement)conp.prepareStatement(sql);
+         pstmp.setInt(1,id);
+         
+         pstmp.execute();
+
+      }catch(Exception e){
+         e.printStackTrace();
+      }finally{
+         try{
+            if(pstmp!=null){
+               pstmp.close();
+            }
+            if(conp!=null){
+               conp.close();
+            }
+         }catch(Exception e){
+            e.printStackTrace();
+         }
+      }
+   }
+
 
 }   
 
