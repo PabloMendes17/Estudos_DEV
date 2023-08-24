@@ -4,6 +4,13 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "mainClass": "com.devribeiro.Main",
+            "projectName": "sistema-kanbam"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
             "mainClass": "com.agenda.main.Main",
             "projectName": "AlgaWork_ab23ff5b"
         },
