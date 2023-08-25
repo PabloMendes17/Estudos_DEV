@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Principal",
+            "request": "launch",
+            "mainClass": "TesteParaProva.SRC.com.TesteParaProva.app.Principal",
+            "projectName": "Estudos_DEV_edf0ae4c"
+        },
+        {
+            "type": "java",
+            "name": "AlgoritimosDeOrdenacao",
+            "request": "launch",
+            "mainClass": "AlgoritimosDeOrdenacao",
+            "projectName": "Estudos_DEV_edf0ae4c"
+        },
+        {
+            "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "com.devribeiro.Main",

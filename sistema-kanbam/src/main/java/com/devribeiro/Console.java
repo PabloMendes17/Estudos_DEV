@@ -10,6 +10,7 @@ public class Console {
         Kanban kanban = new Kanban();
         while(true){
             Scanner input = new Scanner(System.in);
+            Scanner line = new Scanner(System.in);
             Menu();
             int op = input.nextInt();
 
@@ -67,7 +68,7 @@ public class Console {
                 }
             }else if(op==3){
                 System.out.println("Digite o nome da Tarefa");
-                String taskNome = input.next();
+                String taskNome = line.nextLine();
                 kanban.createTask(taskNome);
 
             }else if(op==4){
