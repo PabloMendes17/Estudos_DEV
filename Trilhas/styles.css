@@ -1,0 +1,205 @@
+*{
+    font-family: 'Raleway', sans-serif;
+        box-sizing: border-box;
+        margin: 0;
+    }
+body{
+    background: #000;
+
+}
+.banner{
+ 
+    height: 600px;
+    border-bottom: 1px solid #33A8DB;
+    background-image: url(assets/images/banner.png),linear-gradient(rgba(0, 0, 0, .6), rgba(49, 168, 221, .2), rgba(0, 0, 0, .6));
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 60px;
+  
+}
+.banner-content{
+    color: white;
+    width: 600px;
+    margin: auto;
+    text-align: center;
+}
+.banner-content h1{
+
+font-size: 40px;
+font-weight: 900;
+line-height: normal;
+background: linear-gradient(180deg, #33A8DB 0%, #1472B7 100%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-transform: uppercase;
+}
+.banner-content p{
+    margin: 16px 0 24px;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 400;
+    display: block;
+}
+.banner-content button{
+
+padding: 16px 32px;
+background: content-box;
+border: 2px solid #3BA1CD;
+color: #31A8DD;
+text-align: center;
+font-size: 16px;
+font-weight: 900;
+letter-spacing: 4px;
+text-transform: uppercase;
+}
+.logo{
+    width: 268px;
+    height: 268px;
+    background-color: rgba(0, 0, 0, .2);
+    margin: auto;
+    border-radius: 50%;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+section {
+    margin: 100px auto;
+}
+
+#course-content{
+    width: 800px;
+    text-align: center;
+}
+#course-content h2{
+   
+    color: #33A8DB;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 6.08px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+
+}
+#course-content p{
+    width: 792px;
+    color: #FFF;
+    text-align: center;
+    font-family: Raleway;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-block-start: 16px;
+    margin-block-end: 16px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.module-list{
+    margin: 24px 0;
+}
+.modules-list .module{
+    margin: 0 auto 24px;
+    width: 535px;
+    padding: 16px;
+    border-radius: 57px;
+    border: 1px solid #33A8DB;
+    background: #252525;
+    box-shadow: -2px 6px 4px 0px rgba(0, 0, 0, 0.40) inset;
+    color: #FFF;
+
+
+}
+.module span{
+color: #33A8DB;
+font-family: Raleway;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+}
+
+#transform-world{
+
+    height: 363px;
+    flex-shrink: 0;
+    border-top: 1px solid #33A8DB;
+    border-right: 1px solid #33A8DB;
+    border-bottom: 1px solid #33A8DB;
+    background: url('assets/images/woman-code.png'), lightgray 50% / cover no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 200px;
+
+}
+#transform-world p {
+
+    color: #FFF;
+    text-shadow: 3px 2px 0px #33A8DB;
+    font-size: 40px;
+    font-weight: 900;
+    text-transform: lowercase;
+    max-width: 250px;
+}
+
+#professional-challenges{
+    text-align: center;
+    width: 800px;
+}
+
+#professional-challenges h2 {
+   
+    color: #33A8DB;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 6.08px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+#professional-challenges img {
+    margin: 32px 0;
+
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+#professional-challenges p {
+    color: white;
+display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+footer{
+
+    border-top: 1px solid #33A8DB;
+    background: linear-gradient(180deg, rgba(51, 168, 219, 0.00) 0%, rgba(51, 168, 219, 0.20) 99.99%, rgba(51, 168, 219, 0.20) 100%);
+    padding: 60px 0;
+    text-align: center;
+}
+footer img{
+    width: 300px;
+}
+footer p{
+    color: #FFF;
+text-align: center;
+font-family: Raleway;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+ }
+
+footer a{
+    color: #33A8DB;
+font-family: Raleway;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+} 
